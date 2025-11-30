@@ -39,27 +39,6 @@ namespace tehenAdatok
             "BAB5;1;29"
         };
 
-        List<Tehen> CowsCollection = new List<Tehen>();
-
-        public void Beolvasas(string[] cows)
-        {
-            foreach (var item in cows)
-            {
-                string id = item.Split(';')[0];
-                string nap = item.Split(";")[1];
-                string mennyiseg = item.Split(";")[2];
-                Tehen aktTehen = new Tehen(id);
-
-                if (!CowsCollection.Contains(aktTehen))
-                {
-                    CowsCollection.Add(aktTehen);
-
-                }
-                int index = CowsCollection.IndexOf(aktTehen);
-                CowsCollection[index].EredmenytRogzit(nap, mennyiseg);
-            }
-           
-        }
 
         public MainWindow()
         {
