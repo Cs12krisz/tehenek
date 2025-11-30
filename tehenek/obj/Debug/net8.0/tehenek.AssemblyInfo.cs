@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("tehenek")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+389fff5d49bf69e66f7b301cd95d8e0f4cbda1da")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7a0188baab7ff068876255f6e0ae2495185dc55")]
 [assembly: System.Reflection.AssemblyProductAttribute("tehenek")]
 [assembly: System.Reflection.AssemblyTitleAttribute("tehenek")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

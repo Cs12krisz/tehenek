@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using tehenek;
 
 namespace tehenAdatok
 {
@@ -16,7 +18,8 @@ namespace tehenAdatok
     /// </summary>
     public partial class MainWindow : Window
     {
-        static string[] Cows = {
+        string kivalasztottTehen = "";
+        string[] Cows = {
             "CAE3;4;17","CAE3;3;21","BAB1F2;6;28","BA;5;16","H7;2;24","BAB2;4;21","D1;0;30","BA;2;27",
             "DF;4;26","CAB1;3;27","CAE3;6;22","BA;1;26","BAB1F2AS;0;28","BAB2;2;30","CAA8FV;0;18","BAB5;5;24",
             "D1;4;20","DF;6;22","H7;0;24","CAB1;4;25","BA;6;25","H7C2;6;19","CAA8;0;16","BAB1F2AS;4;15",
@@ -36,21 +39,86 @@ namespace tehenAdatok
             "BAB5;1;29"
         };
 
+        List<Tehen> CowsCollection = new List<Tehen>();
+
+        public void Beolvasas(string[] cows)
+        {
+            foreach (var item in cows)
+            {
+                string id = item.Split(';')[0];
+                string nap = item.Split(";")[1];
+                string mennyiseg = item.Split(";")[2];
+                Tehen aktTehen = new Tehen(id);
+
+                if (!CowsCollection.Contains(aktTehen))
+                {
+                    CowsCollection.Add(aktTehen);
+
+                }
+                int index = CowsCollection.IndexOf(aktTehen);
+                CowsCollection[index].EredmenytRogzit(nap, mennyiseg);
+            }
+           
+        }
+
         public MainWindow()
         {
             InitializeComponent();
             cbx_Nap.ItemsSource = new string[] {"Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap" };
+            
         }
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
+                int i = 0;
+                bool megtalalva = false;
+                while (i < Cows.Length && !megtalalva)
+                {
+                    string id = Cows[i].Split(';')[0];
+                    string day = Cows[i].Split(';')[1];
+                    if (tbx_TehenId.Text == id && cbx_Nap.SelectedIndex.ToString() == day)
+                    {
+                        megtalalva = true;
+                        kivalasztottTehen = Cows[i];
+                    }
+                    i++;
+                }
+
+                if (i < Cows.Length)
+                {
+                    string limitValue = sl_TejLimit.Value.ToString();
+                    double milk = Math.Floor(double.Parse(kivalasztottTehen.Split(";")[2]));
+                    double limitValueNumber = Math.Floor(double.Parse(limitValue));
+                    if (milk < limitValueNumber)
+                    {
+                        MessageBox.Show("Az adott napon a mennyiség nem érte el a limitet!", Title = "Eredmény");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Az adott napon a mennyiség {kivalasztottTehen.Split(";")[2]} liter volt.", Title = "Eredmény");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nem volt fejés", Title = "Eredmény");
+                }
+           
+            
+        }
+
+        private void sl_TejLimit_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (lb_Ertek != null)
+            {
+                lb_Ertek.Content = $"A kiválasztott érték: {e.NewValue:F0}";
+            }
         }
     }
 }

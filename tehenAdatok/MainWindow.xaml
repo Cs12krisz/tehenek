@@ -8,7 +8,8 @@
         Title="Happy-Cows Nyírség Kft." Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -16,16 +17,39 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <ComboBox x:Name="cbx_Nap" SelectedIndex="2" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="120" Margin="78,100,0,0"/>
-        <Button Content="Lekérdezés" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Margin="167,68,0,0" Click="Button_Click_1" />
-        <Button Content="Kilépés" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Margin="601,0,0,0" Click="Button_Click"/>
+        <Button Content="Lekérdezés" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"  Click="Button_Click_1" />
+        <Button Content="Kilépés" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"  Click="Button_Click"/>
         <Label Content="Szarvasmarha azonosítója:" HorizontalAlignment="Left" Margin="100,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="100,41,0,0" Grid.Row="1" TextWrapping="Wrap" Text="BA" VerticalAlignment="Top" Width="129"/>
-        <Label Content="Tejhozam lekérdezése" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" FontSize="24"/>
-        <Slider Width="120" Height="25" Minimum="15" Maximum="25" Value="20" Margin="520,51,160,68" Grid.Row="1"/>
-        <Label x:Name="lb_Ertek" HorizontalAlignment="Left" Margin="580,98,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Label Content="Tej limit:" HorizontalAlignment="Left" Margin="520,18,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Label Content="15 liter" HorizontalAlignment="Left" Margin="457,50,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Label Content="25 liter" HorizontalAlignment="Left" Margin="645,50,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbx_TehenId" HorizontalAlignment="Left" Margin="100,41,0,0" Grid.Row="1" TextWrapping="Wrap" Text="BA" VerticalAlignment="Top" Width="129"/>
+        <Label Content="Tejhozam lekérdezése" HorizontalAlignment="Left" Grid.ColumnSpan="2" VerticalAlignment="Center" FontSize="24" Margin="280,0,0,0"/>
+        <Slider 
+            x:Name="sl_TejLimit"
+            Height="25"
+            Minimum="15" 
+            Maximum="25" 
+            Value="20" 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            Margin="133,60,88,59"
+            Grid.ColumnSpan="2" 
+            ValueChanged="sl_TejLimit_ValueChanged" />
+        <Label
+               HorizontalAlignment="Left"
+               Grid.Row="1" Grid.Column="1"
+               VerticalAlignment="Bottom"
+               Width="200" 
+               Margin="133,0,0,34"
+               x:Name="lb_Ertek">
+            <Label.Content>
+                <Binding ElementName="sl_TejLimit"
+                         Path="Value"
+                         StringFormat="Beállított érték {0:F0} liter"
+                         ></Binding>
+            </Label.Content>
+        </Label>
+            <Label Content="Tej limit:" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" Margin="47,32,0,0"/>
+        <Label Content="15 liter" HorizontalAlignment="Left"   Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="74,54,0,0"/>
+        <Label Content="25 liter" HorizontalAlignment="Right"  Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" Margin="0,55,21,0"/>
 
     </Grid>
 </Window>
