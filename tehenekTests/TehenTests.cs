@@ -64,5 +64,14 @@ namespace Tests
 
             Assert.IsFalse(tehen.Equals(masik));
         }
+
+        [TestMethod()]
+        public void EqualsTestHaEgyeznek()
+        {
+            Tehen tehen = new Tehen("1");
+            Tehen? masik = new Tehen("1");
+
+            Assert.IsTrue(tehen.Equals(masik));
+        }
     }
 }
