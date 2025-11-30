@@ -4,7 +4,7 @@
     {
         static List<Tehen> happyCows = new List<Tehen>();
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
 
             Beolvasas("hozam.txt");
@@ -13,13 +13,13 @@
             Feladat_7();
         }
 
-        private static void Feladat_3()
+        public static void Feladat_3()
         {
             Console.WriteLine("3. feladat");
             Console.WriteLine("Az állomány " + happyCows.Count + " tehén adatait tartalmazza.");
         }
 
-        private static void Feladat_6(string kimenetNev)
+        public static void Feladat_6(string kimenetNev)
         {
             Console.WriteLine("6. feladat");
             var joTejelok = happyCows.Where(cow => cow.hetiAtlag() != -1);
@@ -33,7 +33,7 @@
             Console.WriteLine($"{joTejelok.Count()} db sort írtam az állományba.");
         }
 
-        private static void Feladat_7()
+        public static void Feladat_7()
         {
             Console.WriteLine("7. feladat");
             Console.WriteLine("Kérem adja meg egy tehén azonosítóját!");

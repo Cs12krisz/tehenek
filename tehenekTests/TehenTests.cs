@@ -35,6 +35,7 @@ namespace Tests
 
         }
 
+
         [TestMethod()]
         public void EredmenytRogzitTest()
         {
@@ -51,6 +52,15 @@ namespace Tests
         {
             Tehen tehen = new Tehen("1");
             Tehen? masik = null;
+
+            Assert.IsFalse(tehen.Equals(masik));
+        }
+
+        [TestMethod()]
+        public void EqualsTestHaAMasikIdNemEgyezik()
+        {
+            Tehen tehen = new Tehen("1");
+            Tehen? masik = new Tehen("2");
 
             Assert.IsFalse(tehen.Equals(masik));
         }

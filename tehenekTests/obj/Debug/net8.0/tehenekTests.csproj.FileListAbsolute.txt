@@ -173,3 +173,4 @@ C:\Users\Krisz\Desktop\3_Konyvkiadas\tehenek\tehenekTests\obj\Debug\net8.0\refin
 C:\Users\Krisz\Desktop\3_Konyvkiadas\tehenek\tehenekTests\obj\Debug\net8.0\tehenekTests.pdb
 C:\Users\Krisz\Desktop\3_Konyvkiadas\tehenek\tehenekTests\obj\Debug\net8.0\tehenekTests.genruntimeconfig.cache
 C:\Users\Krisz\Desktop\3_Konyvkiadas\tehenek\tehenekTests\obj\Debug\net8.0\ref\tehenekTests.dll
+C:\Users\Krisz\Desktop\3_Konyvkiadas\tehenek\tehenekTests\obj\Debug\net8.0\tehenekTests.sourcelink.json

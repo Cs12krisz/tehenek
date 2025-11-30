@@ -13,3 +13,4 @@ C:\Users\Krisz\Desktop\3_Konyvkiadas\tehenek\tehenek\obj\Debug\net8.0\refint\teh
 C:\Users\Krisz\Desktop\3_Konyvkiadas\tehenek\tehenek\obj\Debug\net8.0\tehenek.pdb
 C:\Users\Krisz\Desktop\3_Konyvkiadas\tehenek\tehenek\obj\Debug\net8.0\tehenek.genruntimeconfig.cache
 C:\Users\Krisz\Desktop\3_Konyvkiadas\tehenek\tehenek\obj\Debug\net8.0\ref\tehenek.dll
+C:\Users\Krisz\Desktop\3_Konyvkiadas\tehenek\tehenek\obj\Debug\net8.0\tehenek.sourcelink.json
